@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="font-size: 70px;">GUPT GYAN</h1>
+    <button id="start">START</button>
+    <button id="end">STOP IT</button>
+</body>
+<script>
+    const randomColor = function(){
+        const hex = '0123456789ABCDEF';
+        let color = '#';
+        for(let i=0 ; i<6 ; i++){
+            color += hex[Math.floor(Math.random()*16)];
+        }
+        return color;
+    }
+    let intervalId;
+    const startChangingColor = function(){
+        intervalId = setInterval(changeByColor, 700);
+
+        function changeByColor(){
+            document.body.style.backgroundColor = randomColor();
+        }
+    };
+    const stopChangingColor = function(){
+        clearInterval(intervalId);
+    }
+    document.querySelector('#start').addEventListener('click', startChangingColor);
+    document.querySelector('#end').addEventListener('click', stopChangingColor);
+
+
+
+
+</script>
+</html>
